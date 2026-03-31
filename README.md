@@ -86,6 +86,12 @@ ai-infrastructure-inspection/
 - Good crack detection performance
 - Potholes need more data
 
+## 📊 Sample Prediction
+
+Here is an example of the model output on validation data:
+
+![Road Damage Detection](results/val_batch2_labels.jpg)
+
 ## Future Work
 
 - Improve dataset balance  
