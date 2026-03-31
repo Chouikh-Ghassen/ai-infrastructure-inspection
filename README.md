@@ -1,184 +1,99 @@
-# 🚧 AI Infrastructure Inspection (YOLOv5)
+# AI Infrastructure Inspection (YOLOv5)
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)]
-(https://colab.research.google.com/github/Chouikh-Ghassen/ai-infrastructure-inspection/blob/main/notebooks/inference_colab.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Chouikh-Ghassen/ai-infrastructure-inspection/blob/main/notebooks/inference_colab.ipynb)
 
-# AI Infrastructure Inspection Prototype
+## Overview
 
-### Computer Vision-based Road Damage Detection using YOLOv5
+This project demonstrates an AI-based road infrastructure inspection system using YOLOv5 object detection.
 
----
+It automatically detects and classifies road surface damage from images, enabling scalable, fast, and consistent infrastructure monitoring.
 
-## 📖 Overview
+The system was trained using Google Colab GPU (PyTorch) on the RDD-2022 dataset.
 
-This project demonstrates an AI-based infrastructure inspection system using **deep learning object detection (YOLOv5)**.
+## Problem Statement
 
-The system automatically detects and classifies road damage from images, supporting digital infrastructure monitoring and Geo-IT asset management workflows.
+Traditional road inspection is:
+- Manual and time-consuming  
+- Expensive and labor-intensive  
+- Inconsistent due to human judgment  
+- Difficult to scale across large areas  
 
-The prototype was developed using **Google Colab GPU training** and a public road damage dataset.
+This project explores how deep learning can automate this process.
 
----
+## Solution
 
-## Motivation
+We use YOLOv5 (You Only Look Once) for real-time object detection to:
+- Detect road damage automatically  
+- Classify multiple types of cracks and defects  
+- Provide bounding boxes with confidence scores  
+- Enable scalable infrastructure analysis  
 
-Infrastructure inspection is traditionally:
+## Damage Classes
 
-- Time-consuming  
-- Expensive  
-- Dependent on manual labor  
-- Prone to human error  
+- Longitudinal crack  
+- Transverse crack  
+- Alligator crack  
+- Other corruption  
+- Pothole  
 
-This project explores how **computer vision and deep learning** can improve this process by:
+## Model Details
 
-- Automatically detecting road damage  
-- Standardizing inspection results  
-- Enabling scalable infrastructure monitoring  
-- Supporting data-driven maintenance decisions  
+- Architecture: YOLOv5s  
+- Framework: PyTorch  
+- Training: Google Colab GPU  
+- Dataset: RDD-2022  
+- Image size: 640x640  
 
----
+## Run in Google Colab
 
-## Approach
+Click the Colab button above.
 
-### 1. Object Detection Model
-- YOLOv5 (PyTorch-based)
-- Pretrained weights fine-tuned on road damage dataset
+Steps:
+1. Open notebook  
+2. Run setup cells  
+3. Upload image  
+4. Run detection  
+5. View results  
 
-### 2. Training Environment
-- Google Colab (GPU: NVIDIA Tesla T4)
-- PyTorch
-- Ultralytics YOLOv5 implementation
+## Inference (Colab)
 
-### 3. Dataset
-- Dataset: RDD-2022 (Road Damage Dataset)
-- Source: Kaggle
-- Format: YOLO annotation format (bounding boxes)
-
-### 4. Damage Classes (5 classes)
-
-- longitudinal crack  
-- transverse crack  
-- alligator crack  
-- other corruption  
-- pothole  
-
----
-
-## Training Setup
-
-- Image size: 640×640  
-- Model: YOLOv5s  
-- Epochs: 50 (prototype stage)  
-- Batch size: 16  
-- Optimizer: SGD  
-
----
-
-## 📊 Results (Prototype)
-
-Initial training results on subset of dataset:
-
-- Best class mAP50: ~0.55  
-- Crack detection: Good performance  
-- Pothole detection: Lower accuracy (~0.25 mAP)  
-
-### Observations
-
-- Class imbalance affects performance  
-- Crack-related classes are easier to learn  
-- Potholes require more data and augmentation  
-
----
-
-## Inference Examples
-
-The trained model outputs:
-
-- Bounding boxes around detected damage  
-- Class labels for each damage type  
-- Confidence scores  
-
-Example outputs:
-
+```python
+from google.colab import files
+uploaded = files.upload()
 ```
-runs/detect/exp/
-```
-
----
-
-## How to Run
-
-### 1. Clone repository
 
 ```bash
-git clone https://github.com/Chouikh-Ghassen/ai-infrastructure-inspection
-cd ai-infrastructure-inspection
+python detect.py --weights best.pt --source input.jpg --img 640 --conf 0.25
 ```
-
-### 2. Install dependencies
-
-```bash
-pip install -r requirements.txt
-```
-
-### 3. Run inference
-
-```bash
-python yolov5/detect.py --weights best.pt --source images/
-```
-
----
 
 ## Project Structure
 
 ```
 ai-infrastructure-inspection/
-│
-├── yolov5/
+├── notebooks/
+├── models/
+│   └── best.pt
+├── data/
 ├── images/
-├── results/
-├── data.yaml
-├── best.pt
+├── yolov5/
 ├── requirements.txt
 └── README.md
 ```
 
----
+## Results
 
-## Relevance for Geo-IT Systems
-
-This project can be extended for:
-
-- Infrastructure digital twins  
-- GIS-based damage mapping  
-- Automated road inspection systems  
-- Smart city maintenance planning  
-- Edge AI deployment for real-time inspection  
-
----
+- mAP@0.5 ~ 0.55 (prototype)
+- Good crack detection performance
+- Potholes need more data
 
 ## Future Work
 
 - Improve dataset balance  
-- Train on full dataset  
-- GIS integration  
-- Real-time video detection  
-- API deployment (FastAPI / Streamlit)  
-- Edge AI deployment  
-
----
-
-## Tech Stack
-
-- Python  
-- PyTorch  
-- YOLOv5  
-- OpenCV  
-- Google Colab  
-
----
+- Add real-time video detection  
+- Deploy API (FastAPI / Streamlit)  
+- GIS integration for mapping  
 
 ## Author
 
-**Ghassen Chouikh**
-
+Ghassen Chouikh
 AI & Software Engineer
