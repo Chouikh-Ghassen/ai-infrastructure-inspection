@@ -1,0 +1,5 @@
+train: /content/rdd_small/train/images
+val: /content/rdd_small/val/images
+
+nc: 5
+names: ['longitudinal crack', 'transverse crack', 'alligator crack', 'other corruption', 'pothole']
