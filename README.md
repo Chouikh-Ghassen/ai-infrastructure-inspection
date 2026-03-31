@@ -1,3 +1,8 @@
+# 🚧 AI Infrastructure Inspection (YOLOv5)
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)]
+(https://colab.research.google.com/github/Chouikh-Ghassen/ai-infrastructure-inspection/blob/main/notebooks/inference_colab.ipynb)
+
 # AI Infrastructure Inspection Prototype
 
 ### Computer Vision-based Road Damage Detection using YOLOv5
