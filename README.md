@@ -2,7 +2,7 @@
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Chouikh-Ghassen/ai-infrastructure-inspection/blob/main/notebooks/inference_colab.ipynb)
 
-## Overview ZEUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUS
+## Overview
 
 This project demonstrates an AI-based road infrastructure inspection system using YOLOv5 object detection.
 
